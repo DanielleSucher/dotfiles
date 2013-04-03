@@ -1,0 +1,78 @@
+# shell -${SHELL}
+
+# enable rbenv shims and autocompletion
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# enable virtualenv
+if which virtualenv > /dev/null; then
+  source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
+fi
+
+# ========================================
+# Path settings
+# ========================================
+
+PATH=$PATH:/opt/local/bin:/opt/local/sbin
+export PATH=$HOME/local/bin:$PATH
+export PATH=${PATH}:~/code/android-sdk-macosx/tools
+export PATH=${PATH}:~/code/android-sdk-macosx/platform-tools
+export PATH=${PATH}:/usr/local/bin
+export PATH=${PATH}:/opt/X11/lib/pkgconfig
+export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+
+if [ -d ~/.bin ]; then
+  export PATH=$HOME/.bin:$PATH
+fi
+
+if [ -d ~/.node ]; then
+  export PATH=$HOME/.node/bin:$PATH
+fi
+
+if [ -d ~/.rbenv ]; then
+  export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
+fi
+
+if which julia > /dev/null; then
+  export PATH=$PATH:/Users/Danielle/code/julia-devel/julia
+fi
+
+export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick/6.7.5-7/lib/pkgconfig
+
+# virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+
+# Node.js
+export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+
+# ========================================
+# Bash
+# ========================================
+
+if [ -f ~/.bash_aliases ]; then
+  source ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_functions ]; then
+  source ~/.bash_functions
+fi
+
+# colours and git branch for my prompt
+export PROMPT_COMMAND=ps_function
+
+# ========================================
+# Completions
+# ========================================
+
+# git auto complete on tab
+source /usr/local/git/contrib/completion/git-completion.bash
+
+# enable bash history tab completion
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+
+# ========================================
+# Prolog settings
+# ========================================
+
+# This allows using Prolog graphics if you use Terminal.app
+if [ -z "$DISPLAY" ]; then export DISPLAY=:0; fi

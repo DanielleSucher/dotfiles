@@ -1,0 +1,9 @@
+# colours and git branch for my prompt
+function ps_function() {
+black="\[\033[0;30m\]"
+blue="\[\033[1;34m\]"
+cyan="\[\033[1;36m\]"
+green="\[\033[0;32m\]"
+branch='$(__git_ps1 "(%s)")'
+PS1="$green[$blue\W$cyan $branch$green]$blue\$$black"
+}

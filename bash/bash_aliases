@@ -1,0 +1,22 @@
+alias migrate='rake db:migrate && rake db:test:prepare'
+alias bin='bundle exec'
+alis be='bundle exec'
+
+alias rspec='rspec --color --format documentation'
+alias mocha='mocha --require should'
+
+alias gitpiv='. ~/code/git-pivotal-hooks/gitpiv-setup.sh'
+alias julia='~/code/julia/usr/bin/julia-release-readline'
+
+# virtualenv aliases
+# http://blog.doughellmann.com/2010/01/virtualenvwrapper-tips-and-tricks.html
+alias v='workon'
+alias v.deactivate='deactivate'
+alias v.mk='mkvirtualenv --no-site-packages'
+alias v.mk_withsitepackages='mkvirtualenv'
+alias v.rm='rmvirtualenv'
+alias v.switch='workon'
+alias v.add2virtualenv='add2virtualenv'
+alias v.cdsitepackages='cdsitepackages'
+alias v.cd='cdvirtualenv'
+alias v.lssitepackages='lssitepackages'
