@@ -1,6 +1,6 @@
 alias migrate='rake db:migrate && rake db:test:prepare'
 alias bin='bundle exec'
-alis be='bundle exec'
+alias be='bundle exec'
 
 alias rspec='rspec --color --format documentation'
 alias mocha='mocha --require should'
