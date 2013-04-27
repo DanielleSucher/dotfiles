@@ -41,7 +41,6 @@ node_modules/*.*
 
 # Ruby #
 ########
-Gemfile.lock
 .rvmrc
 *.gem
 *.rbc
