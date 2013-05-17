@@ -4,9 +4,9 @@
   website = http://daniellesucher.com
 [alias]
   a = add
+  chp = cherry-pick
   ci = commit
   co = checkout
-  chp = cherry-pick
   d = diff
   f = fetch
   fo = fetch origin

@@ -1,3 +1,5 @@
+alias gitinit='git init && . ~/code/dotfiles/git/license.sh'
+
 alias migrate='rake db:migrate && rake db:test:prepare'
 alias bin='bundle exec'
 alias be='bundle exec'
