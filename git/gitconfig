@@ -1,10 +1,12 @@
 [user]
   name = Danielle Sucher
-  email =  #fill in email
+  email =  dsucher@gmail.com
+  website = http://daniellesucher.com
 [alias]
   a = add
   ci = commit
   co = checkout
+  chp = cherry-pick
   d = diff
   f = fetch
   fo = fetch origin
