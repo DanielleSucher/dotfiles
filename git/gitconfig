@@ -10,6 +10,7 @@
   d = diff
   f = fetch
   fo = fetch origin
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   p = push
   pom = push origin master
   pos = push origin staging
