@@ -41,6 +41,7 @@ node_modules/*.*
 
 # Ruby #
 ########
+.ruby-version
 .rvmrc
 *.gem
 *.rbc
