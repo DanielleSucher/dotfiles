@@ -8,6 +8,8 @@ if which virtualenv > /dev/null; then
   source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
 fi
 
+export EDITOR=vim
+
 # ========================================
 # Path settings
 # ========================================
@@ -18,7 +20,11 @@ export PATH=${PATH}:~/code/android-sdk-macosx/tools
 export PATH=${PATH}:~/code/android-sdk-macosx/platform-tools
 export PATH=${PATH}:/usr/local/bin
 export PATH=${PATH}:/opt/X11/lib/pkgconfig
-export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+export PATH=${PATH}:/Library/Frameworks/Python.framework/Versions/2.7/bin
+
+if [ -d /Applications/Postgres.app/Contents/MacOS/bin ]; then
+  export PATH=${PATH}:/Applications/Postgres.app/Contents/MacOS/bin
+fi
 
 if [ -d ~/.bin ]; then
   export PATH=$HOME/.bin:$PATH
