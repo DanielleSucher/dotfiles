@@ -1,0 +1,51 @@
+" see http://mislav.uniqpath.com/2011/12/vim-revisited/
+" and http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+
+set nocompatible
+syntax enable
+set encoding=utf-8
+set showcmd                     " display incomplete commands
+filetype plugin indent on       " load file type plugins + indentation
+
+"" Whitespace
+set nowrap                      " don't wrap lines
+set tabstop=2 shiftwidth=2      " a tab is two spaces
+set expandtab                   " use spaces, not tabs
+set backspace=indent,eol,start  " backspace through everything in insert mode
+
+"" Searching
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+set gdefault                    " apply substitutions globally (on all lines) by default
+
+set number
+"set relativenumber              " relative rather than absolute line numbers
+
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
+" change the mapleader from \ to ,
+let mapleader=","
+
+set hidden
+set mouse=a
+set pastetoggle=<F2>
+
+" switch between currently open buffer and previous one with ,,
+nnoremap <leader><leader> <c-^>
+
+" strip all trailing whitespace in the file with ,W
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" reselect text just pasted with ,v
+nnoremap <leader>v V`]         
+
+" double percentage sign in command mode is expanded
+" to directory of current file - http://vimcasts.org/e/14
+" (Command-T plugin usage)
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
