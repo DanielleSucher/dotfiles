@@ -49,3 +49,9 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+
+" nerdtree file browser
+map \           :NERDTreeToggle<CR>
+
+" nerdtree file browser showing current file - pipe (shift-backslash)
+map \|          :NERDTreeFind<CR>
