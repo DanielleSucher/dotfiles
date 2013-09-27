@@ -39,9 +39,6 @@ nnoremap <leader><leader> <c-^>
 " strip all trailing whitespace in the file with ,W
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" reselect text just pasted with ,v
-nnoremap <leader>v V`]         
-
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 " (Command-T plugin usage)
@@ -55,3 +52,6 @@ map \           :NERDTreeToggle<CR>
 
 " nerdtree file browser showing current file - pipe (shift-backslash)
 map \|          :NERDTreeFind<CR>
+
+" reselect text just pasted with gp
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
