@@ -67,3 +67,7 @@ imap <D-/>      <Esc><plug>NERDCommenterToggle i
 " Copy current file path to system pasteboard
 map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
+
+" set up syntax-based folding, with all folds open by default
+set foldmethod=syntax
+set foldlevelstart=20
