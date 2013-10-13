@@ -80,3 +80,5 @@ function! LoadFileList(path)
 endfunction
 
 com -nargs=1 Clist call LoadFileList(<f-args>)
+
+nnoremap <space> :nohl<CR>
