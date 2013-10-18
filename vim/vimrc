@@ -82,3 +82,6 @@ endfunction
 com -nargs=1 Clist call LoadFileList(<f-args>)
 
 nnoremap <space> :nohl<CR>
+
+highlight ColorColumn ctermbg=015 guibg=#FAFAFA
+let &colorcolumn=join(range(81,999),",")
