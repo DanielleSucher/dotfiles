@@ -7,6 +7,7 @@ git@github.com:mileszs/ack.vim.git
 git@github.com:nvie/vim-togglemouse.git
 git@github.com:rking/ag.vim.git
 git@github.com:scrooloose/nerdcommenter.git
+git@github.com:tpope/vim-fugitive.git
 git@github.com:tpope/vim-repeat.git
 git@github.com:tpope/vim-surround.git
 git@github.com:vim-scripts/Decho.git
