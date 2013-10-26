@@ -1,6 +1,7 @@
 git@github.com:DanielleSucher/nerdtree.git
-git@github.com:Peeja/vim-cdo.git
+git@github.com:DanielleSucher/vim-cdo.git
 git@github.com:airblade/vim-gitgutter.git
+git@github.com:cfurrow/vim-l9.git
 git@github.com:godlygeek/tabular.git
 git@github.com:mgamba/edit-plus.git
 git@github.com:mileszs/ack.vim.git
@@ -12,3 +13,4 @@ git@github.com:tpope/vim-repeat.git
 git@github.com:tpope/vim-surround.git
 git@github.com:vim-scripts/Decho.git
 git@github.com:wincent/Command-T.git
+https://bitbucket.org/ns9tks/vim-fuzzyfinder
