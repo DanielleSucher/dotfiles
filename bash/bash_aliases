@@ -1,7 +1,5 @@
 alias vim=/usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/Vim
 
-alias gitinit='git init && . ~/code/dotfiles/git/license.sh'
-
 alias migrate='rake db:migrate && rake db:test:prepare'
 alias be='bundle exec'
 

@@ -1,10 +1,10 @@
 #!/bin/sh -e
-# Usage: license
+# Usage: git init with MIT license
 # Prints an MIT license appropriate for totin' around.
 # adapted from https://gist.github.com/trey/287970
-#
-# $ license > COPYING
-#!/bin/sh
+
+git init
+
 echo "Copyright (c) `date +%Y` `git config user.name`, `git config user.email`, `git config user.website`
 
 Permission is hereby granted, free of charge, to any person obtaining
