@@ -18,7 +18,6 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
-set gdefault                    " apply substitutions globally (on all lines) by default
 
 set number
 "set relativenumber              " relative rather than absolute line numbers
