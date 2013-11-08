@@ -1,0 +1,2 @@
+After `brew install erlang`, to get erl -man working you need to add a symlink:
+`ln -s /usr/local/Cellar/erlang/R16B/share/man /usr/local/Cellar/erlang/R16B/lib/erlang/man`
