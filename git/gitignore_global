@@ -86,3 +86,8 @@ DerivedData
 notes/
 csv/
 *.env
+
+# Shutupvim #
+#############
+*.swp
+*.swo
