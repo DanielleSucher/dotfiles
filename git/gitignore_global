@@ -86,6 +86,7 @@ DerivedData
 notes/
 csv/
 *.env
+deps/
 
 # Shutupvim #
 #############
