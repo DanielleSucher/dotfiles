@@ -8,6 +8,11 @@ alias be='bundle exec'
 alias rspec='rspec --color --format documentation'
 alias mocha='mocha --require should'
 
+# props to https://twitter.com/kentaro/status/398296840711335936
+alias green='echo ""; echo "(•_•)"; echo "<)   )╯ UNIT"; echo " /    \   ";
+  echo ""; echo "\(•_•)"; echo " (   (>  TEST"; echo " /    \  "; echo "";
+  echo "(•_•) "; echo "<)   )>  PASSED"; echo " /    \ "; echo ""'
+
 alias gitpiv='. ~/code/git-pivotal-hooks/gitpiv-setup.sh'
 alias julia='~/code/julia/usr/bin/julia-release-readline'
 
