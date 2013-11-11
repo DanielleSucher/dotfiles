@@ -96,3 +96,6 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " FuzzyFinder
 map <D-e>       :FufBuffer<CR>
 map <leader>rb  :FufBuffer<CR>
+
+" Save swap files in /var/tmp so they can be easily cleared with shutupvim
+set directory=/var/tmp
