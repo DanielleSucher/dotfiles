@@ -23,7 +23,7 @@ set number
 "set relativenumber              " relative rather than absolute line numbers
 
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 
 " change the mapleader from \ to ,
 let mapleader=","
