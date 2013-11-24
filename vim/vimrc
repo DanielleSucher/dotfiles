@@ -2,6 +2,7 @@
 " and http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
 set nocompatible
+set nomodeline
 syntax enable
 set encoding=utf-8
 set showcmd                     " display incomplete commands
