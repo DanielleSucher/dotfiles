@@ -100,3 +100,6 @@ map <leader>rb  :FufBuffer<CR>
 
 " Save swap files in /var/tmp so they can be easily cleared with shutupvim
 set directory=/var/tmp
+
+" tab completion
+imap <Tab> <C-P>
