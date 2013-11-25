@@ -29,6 +29,8 @@ call pathogen#incubate()
 " change the mapleader from \ to ,
 let mapleader=","
 
+map ; :
+
 set hidden
 set mouse=a
 set pastetoggle=<F2>
