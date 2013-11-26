@@ -30,6 +30,8 @@ call pathogen#incubate()
 let mapleader=","
 
 map ; :
+inoremap jk <Esc>
+vnoremap jk <Esc>
 
 set hidden
 set mouse=a
