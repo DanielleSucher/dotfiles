@@ -39,7 +39,7 @@ if [ -d ~/.rbenv ]; then
 fi
 
 if which julia > /dev/null; then
-  export PATH=$PATH:/Users/Danielle/code/julia-devel/julia
+  export PATH=$PATH:$HOME/code/julia-devel/julia
 fi
 
 export PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick/6.7.5-7/lib/pkgconfig
