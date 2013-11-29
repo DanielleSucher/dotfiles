@@ -72,10 +72,6 @@ imap <D-/>      <Esc><plug>NERDCommenterToggle i
 map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
 
-" set up syntax-based folding, with all folds open by default
-set foldmethod=syntax
-set foldlevelstart=20
-
 " load a list of files in path:line_number format into the quickfix window
 function! LoadFileList(path)
   set errorformat=%f:%l
