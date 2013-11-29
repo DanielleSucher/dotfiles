@@ -57,6 +57,9 @@ map \           :NERDTreeToggle<CR>
 " nerdtree file browser showing current file - pipe (shift-backslash)
 map \|          :NERDTreeFind<CR>
 
+" Don't display .beam files in nerdtree
+let NERDTreeIgnore=['\.beam$']
+
 " reselect text just pasted with gp
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
