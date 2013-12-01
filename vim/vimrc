@@ -127,3 +127,12 @@ endfunction
 
 " tab completion
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+
+" clojure
+au BufRead,BufNewFile *.clj set filetype=clojure
+
+" rainbow parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
