@@ -111,7 +111,7 @@ function! Smart_TabComplete()
                                                   " line to one character right
                                                   " of the cursor
   let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  if (strlen(substr)==0)                          " nothing to match on empty string
+  if (strlen(substr)==0 || strlen(substr)==1)     " nothing to match on empty string
     return "\<tab>"
   endif
   let has_period = match(substr, '\.') != -1      " position of period, if any
