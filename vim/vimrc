@@ -136,3 +136,13 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" Find current word in command mode
+function! AckGrep()
+  let command = "ack ".expand("<cword>")
+  cexpr system(command)
+  cw
+endfunction
+
+" AckGrep current word
+map <leader>a :call AckGrep()<CR>
