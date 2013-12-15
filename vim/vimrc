@@ -43,16 +43,9 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
-" }}}
 
-" Find current word in command mode with ,a {{{
-function! AckGrep()
-  let command = "ack ".expand("<cword>")
-  cexpr system(command)
-  cw
-endfunction
-
-map <leader>a :call AckGrep()<CR>
+" Find current word in command mode with ,a
+map <leader>a :Ag!<CR>
 " }}}
 
 " nerdtree file browser {{{
