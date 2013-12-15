@@ -1,30 +1,18 @@
 " see http://mislav.uniqpath.com/2011/12/vim-revisited/
 " and http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
+" Basic setup {{{
 set nocompatible
 set nomodeline
 syntax enable
 set encoding=utf-8
 set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
-
-"" Whitespace
-set nowrap                      " don't wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces
-set expandtab                   " use spaces, not tabs
-set backspace=indent,eol,start  " backspace through everything in insert mode
-
-"" Searching
-set hlsearch                    " highlight matches
-set incsearch                   " incremental searching
-set ignorecase                  " searches are case insensitive...
-set smartcase                   " ... unless they contain at least one capital letter
-
 set number
-"set relativenumber              " relative rather than absolute line numbers
 
 call pathogen#helptags()
 call pathogen#incubate()
+" }}}
 
 " change the mapleader from \ to ,
 let mapleader=","
@@ -37,21 +25,37 @@ set hidden
 set mouse=a
 set pastetoggle=<F2>
 
-" switch between currently open buffer and previous one with ,,
-nnoremap <leader><leader> <c-^>
+" Save swap files in /var/tmp so they can be easily cleared with shutupvim
+set directory=/var/tmp
+
+"" Whitespace {{{
+set nowrap                      " don't wrap lines
+set tabstop=2 shiftwidth=2      " a tab is two spaces
+set expandtab                   " use spaces, not tabs
+set backspace=indent,eol,start  " backspace through everything in insert mode
 
 " strip all trailing whitespace in the file with ,W
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" }}}
 
-" double percentage sign in command mode is expanded
-" to directory of current file - http://vimcasts.org/e/14
-" (Command-T plugin usage)
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+"" Searching {{{
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+" }}}
 
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+" Find current word in command mode with ,a {{{
+function! AckGrep()
+  let command = "ack ".expand("<cword>")
+  cexpr system(command)
+  cw
+endfunction
 
-" nerdtree file browser
+map <leader>a :call AckGrep()<CR>
+" }}}
+
+" nerdtree file browser {{{
 map \           :NERDTreeToggle<CR>
 
 " nerdtree file browser showing current file - pipe (shift-backslash)
@@ -59,23 +63,18 @@ map \|          :NERDTreeFind<CR>
 
 " Don't display .beam files in nerdtree
 let NERDTreeIgnore=['\.beam$']
+" }}}
 
-" reselect text just pasted with gp
-nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
-
-" Pad comment delimeters with spaces
-let NERDSpaceDelims = 1
-
-" Comment/uncomment lines
+" Comment/uncomment lines {{{
 map <leader>/   <plug>NERDCommenterToggle
 map <D-/>       <plug>NERDCommenterToggle
 imap <D-/>      <Esc><plug>NERDCommenterToggle i
 
-" Copy current file path to system pasteboard
-map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
-map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
+" Pad comment delimeters with spaces
+let NERDSpaceDelims = 1
+" }}}
 
-" load a list of files in path:line_number format into the quickfix window
+" load a list of files in path:line_number format into the quickfix window {{{
 function! LoadFileList(path)
   set errorformat=%f:%l
   exe 'cf ' . a:path
@@ -83,27 +82,23 @@ function! LoadFileList(path)
 endfunction
 
 com -nargs=1 Clist call LoadFileList(<f-args>)
+" }}}
 
-nnoremap <space> :nohl<CR>
-
+" Add light grey background past 80 characters {{{
 highlight ColorColumn ctermbg=015 guibg=#FAFAFA
 let &colorcolumn=join(range(81,999),",")
+" }}}
 
-" Use ctrl-j/k to move lines up/down in all modes
+" Use ctrl-j/k to move lines up/down in all modes {{{
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 inoremap <C-j> <ESC>:m .+1<CR>==gi
 inoremap <C-k> <ESC>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+" }}}
 
-" FuzzyFinder
-map <D-e>       :FufBuffer<CR>
-map <leader>rb  :FufBuffer<CR>
-
-" Save swap files in /var/tmp so they can be easily cleared with shutupvim
-set directory=/var/tmp
-
+" tab completion {{{
 function! Smart_TabComplete()
   let line = getline('.')                         " current line
 
@@ -125,24 +120,46 @@ function! Smart_TabComplete()
   endif
 endfunction
 
-" tab completion
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+" }}}
 
-" clojure
-au BufRead,BufNewFile *.clj set filetype=clojure
-
-" rainbow parentheses
+" rainbow parentheses {{{
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+" }}}
 
-" Find current word in command mode
-function! AckGrep()
-  let command = "ack ".expand("<cword>")
-  cexpr system(command)
-  cw
-endfunction
+" fold vimscript files explicitly with " {{{
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
 
-" AckGrep current word
-map <leader>a :call AckGrep()<CR>
+" reselect text just pasted with gp
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+nnoremap <space> :nohl<CR>
+
+" switch between currently open buffer and previous one with ,,
+nnoremap <leader><leader> <c-^>
+
+" FuzzyFinder
+map <D-e>       :FufBuffer<CR>
+map <leader>rb  :FufBuffer<CR>
+
+" double percentage sign in command mode is expanded
+" to directory of current file - http://vimcasts.org/e/14
+" (Command-T plugin usage)
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+
+" Copy current file path to system pasteboard
+map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
+map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
+
+" clojure
+au BufRead,BufNewFile *.clj set filetype=clojure
