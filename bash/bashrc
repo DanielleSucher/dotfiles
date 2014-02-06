@@ -77,6 +77,17 @@ bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
 # ========================================
+# Shell options
+# ========================================
+
+# save all lines of a multiple-line command in the same history entry
+shopt -s cmdhist
+
+# append history list to the file named by the value of $HISTFILE
+# when the shell exits, rather than overwriting the file
+shopt -s histappend
+
+# ========================================
 # Prolog settings
 # ========================================
 
