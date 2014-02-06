@@ -154,3 +154,6 @@ map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%"
 
 " clojure
 au BufRead,BufNewFile *.clj set filetype=clojure
+
+" prolog
+au BufRead,BufNewFile *.pl set filetype=prolog
