@@ -118,6 +118,17 @@ inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 " }}}
 
 " rainbow parentheses {{{
+let g:rbpt_colorpairs = [
+    \ ['red',         'firebrick3'],
+    \ ['Lightblue',    'SeaGreen3'],
+    \ ['red',         'firebrick3'],
+    \ ['69',    '#5f87ff'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['214',    '#ffaf00'],
+    \ ['black',         'black'],
+    \ ['10',         '#005f00'],
+    \ ]
+
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
