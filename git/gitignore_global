@@ -87,6 +87,7 @@ notes/
 csv/
 *.env
 deps/
+.projections.json
 
 # Shutupvim #
 #############
