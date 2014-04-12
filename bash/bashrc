@@ -14,13 +14,12 @@ export EDITOR=vim
 # Path settings
 # ========================================
 
-PATH=$PATH:/opt/local/bin:/opt/local/sbin
-export PATH=$HOME/local/bin:$PATH
-export PATH=${PATH}:~/code/android-sdk-macosx/tools
-export PATH=${PATH}:~/code/android-sdk-macosx/platform-tools
-export PATH=${PATH}:/usr/local/bin
-export PATH=${PATH}:/opt/X11/lib/pkgconfig
-export PATH=${PATH}:/Library/Frameworks/Python.framework/Versions/2.7/bin
+export PATH=$HOME/local/bin:/usr/local/bin:$PATH
+export PATH=$PATH:/opt/local/bin:/opt/local/sbin
+export PATH=$PATH:~/code/android-sdk-macosx/tools
+export PATH=$PATH:~/code/android-sdk-macosx/platform-tools
+export PATH=$PATH:/opt/X11/lib/pkgconfig
+export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/2.7/bin
 
 if [ -d /Applications/Postgres.app/Contents/MacOS/bin ]; then
   export PATH=${PATH}:/Applications/Postgres.app/Contents/MacOS/bin
