@@ -75,6 +75,11 @@ source /usr/local/git/contrib/completion/git-completion.bash
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
+# Enable ctrl-S to reverse ctrl-R reverse-search in bash
+if [ -t 0 ] ; then
+  stty -ixon
+fi
+
 # ========================================
 # Shell options
 # ========================================
