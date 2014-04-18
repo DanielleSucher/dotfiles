@@ -165,6 +165,7 @@ map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 " Copy current file path to system pasteboard
 map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
+map <leader>cp :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 
 " clojure
 au BufRead,BufNewFile *.clj set filetype=clojure
