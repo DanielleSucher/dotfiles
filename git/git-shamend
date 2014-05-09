@@ -30,7 +30,13 @@ then
   echo "${BOLD}Warning: your unstaged changes will be stashed during this process${NORMAL}"
 
   git commit --fixup $SHA_TO_AMEND > /dev/null
-  git stash > /dev/null
+
+  git diff-index --quiet HEAD
+  NOTHING_TO_STASH=$?
+  if [ $NOTHING_TO_STASH -ne 0 ]
+  then
+    git stash > /dev/null
+  fi
 
   GIT_EDITOR=true git rebase -i --autosquash "$SHA_TO_AMEND^"
 
@@ -42,7 +48,10 @@ then
     echo "it looks like you'll have to interactive rebase this one manually.${NORMAL}"
   fi
 
-  git stash pop > /dev/null
+  if [ $NOTHING_TO_STASH -ne 0 ]
+  then
+    git stash pop > /dev/null
+  fi
 else
   PrintGitShamendUsage
   exit 1
