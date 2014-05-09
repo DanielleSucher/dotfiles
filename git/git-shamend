@@ -1,6 +1,24 @@
 #!/bin/sh
 set -o nounset
 
+PrintGitShamendUsage() {
+  echo
+  echo "git-shamend amends your staged changes as a fixup (keeping the pre-existing"
+  echo "commit message) to the specified older commit in the current branch."
+  echo
+  echo "USAGE:"
+  echo "stage the changes you want to amend into an earlier commit, then run:"
+  echo "\`git shamend SHA_TO_AMEND\`"
+  echo "(where SHA_TO_AMEND must be the SHA for a commit in the current branch)"
+  echo
+}
+
+if [ -z "$*" ]
+then
+  PrintGitShamendUsage
+  exit 1
+fi
+
 SHA_TO_AMEND=$(git rev-parse "$@")
 
 if git merge-base --is-ancestor $SHA_TO_AMEND HEAD
@@ -26,15 +44,7 @@ then
 
   git stash pop > /dev/null
 else
-  echo
-  echo "git-shamend amends your staged changes as a fixup (keeping the pre-existing"
-  echo "commit message) to the specified older commit in the current branch."
-  echo
-  echo "USAGE:"
-  echo "stage the changes you want to amend into an earlier commit, then run:"
-  echo "\`git shamend SHA_TO_AMEND\`"
-  echo "(where SHA_TO_AMEND must be the SHA for a commit in the current branch)"
-  echo
+  PrintGitShamendUsage
   exit 1
 fi
 
