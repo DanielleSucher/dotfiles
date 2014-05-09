@@ -16,7 +16,7 @@ then
 
   GIT_EDITOR=true git rebase -i --autosquash "$SHA_TO_AMEND^"
 
-  if [[ $? -ne 0 ]]
+  if [ $? -ne 0 ]
   then
     git rebase --abort
     git reset --soft HEAD^
