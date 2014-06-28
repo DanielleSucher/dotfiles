@@ -1,5 +1,5 @@
 alias psql=/Applications/Postgres.app/Contents/MacOS/bin/psql
-alias vim=/usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/Vim
+alias vim="mvim -v"
 alias shutupvim='rm -v ~/tmp/*.sw* /var/tmp/*.sw*'
 
 alias migrate='rake db:migrate && rake db:test:prepare'
