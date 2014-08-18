@@ -4,6 +4,7 @@ https://github.com/DanielleSucher/rainbow_parentheses.vim.git
 https://github.com/DanielleSucher/vim-cdo.git
 https://github.com/airblade/vim-gitgutter.git
 https://github.com/cfurrow/vim-l9.git
+https://github.com/derekwyatt/vim-scala.git
 https://github.com/godlygeek/tabular.git
 https://github.com/guns/vim-clojure-static.git
 https://github.com/jnwhiteh/vim-golang.git
@@ -11,8 +12,10 @@ https://github.com/mgamba/edit-plus.git
 https://github.com/mileszs/ack.vim.git
 https://github.com/nvie/vim-togglemouse.git
 https://github.com/rking/ag.vim.git
+https://github.com/rodjek/vim-puppet.git
 https://github.com/scrooloose/nerdcommenter.git
 https://github.com/semmons99/vim-ruby-matchit.git
+https://github.com/tpope/vim-abolish.git
 https://github.com/tpope/vim-endwise.git
 https://github.com/tpope/vim-fugitive.git
 https://github.com/tpope/vim-projectile.git
