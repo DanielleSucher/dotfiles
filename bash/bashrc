@@ -21,6 +21,11 @@ export PATH=$PATH:~/code/android-sdk-macosx/platform-tools
 export PATH=$PATH:/opt/X11/lib/pkgconfig
 export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/2.7/bin
 
+if [ -d /anaconda ]; then
+  # added by Anaconda 2.1.0 installer
+  export PATH=/anaconda/bin:$PATH
+fi
+
 if [ -d /Applications/Postgres.app/Contents/MacOS/bin ]; then
   export PATH=${PATH}:/Applications/Postgres.app/Contents/MacOS/bin
 fi
