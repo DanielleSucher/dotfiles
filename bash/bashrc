@@ -9,6 +9,7 @@ if which virtualenv > /dev/null; then
 fi
 
 export EDITOR=vim
+export SBT_OPTS=-XX:MaxPermSize=256m
 
 # ========================================
 # Path settings
