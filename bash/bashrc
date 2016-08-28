@@ -77,9 +77,13 @@ export PROMPT_COMMAND=ps_function
 # git auto complete on tab
 source /usr/local/git/contrib/completion/git-completion.bash
 
-# enable bash history tab completion
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
+# enable bash history tab completion,
+# but only if run from an interactive shell
+itest=$(expr index "$-" i)
+if [[ $itest > 0 ]]; then
+  bind '"\e[A":history-search-backward'
+  bind '"\e[B":history-search-forward'
+fi
 
 # Enable ctrl-S to reverse ctrl-R reverse-search in bash
 if [ -t 0 ] ; then
